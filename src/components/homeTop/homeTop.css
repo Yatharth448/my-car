@@ -1,0 +1,83 @@
+.homeTopContainer {
+    height: calc(50vh - 50px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../../../public/assets/post/3.jpeg");
+}
+
+.textContainer {
+    width: 70%;
+   padding: 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textOne {
+    font-size: 42px;
+    font-weight: 600;
+    color: white;
+    line-height: 1.12;
+    letter-spacing: normal;
+    text-align: center;
+}
+
+.textTwo {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.29;
+    letter-spacing: normal;
+    color: #fff;
+    text-align: center;
+}
+.searchContainer{
+    display: flex;
+    margin-top: 30px;
+    width: 60%;
+    height: 60px;
+    border-radius: 50px;
+    background-color: #fff;
+    /* border: 1px solid red; */
+    position: relative;
+    /* overflow: hidden; */
+
+}
+.searchLeft{
+    flex: 3.5;
+    /* background-color: aquamarine; */
+}
+.searchCenter {
+    flex: 5;
+    /* background-color: blanchedalmond; */
+    /* position: relative; */
+}
+.searchContainer:hover .dateTime{
+    display:flex;
+}
+.searchRight {
+    flex: 3;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+   
+}
+.searchRight:hover + .dateTime{
+    display: none;
+}
+.searchRight:hover {
+    opacity: 0.8;
+}
+.searchBtnText{
+    /* text-align: center; */
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+}
