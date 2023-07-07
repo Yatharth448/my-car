@@ -1,12 +1,19 @@
 import Home from "./pages/home/Home";
+import CarList from "./pages/car-list/index";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
-function App() {
+export default function App() {
   return (
-    <div >
-     <Home/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}/>
+        <Route path="/car-list" element={<CarList />} /> 
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-export default App;
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);

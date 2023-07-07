@@ -6,7 +6,10 @@ import { StaticDateTimePicker } from "@mui/x-date-pickers/StaticDateTimePicker"
 import { Card } from "@mui/material";
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
+import ListItemText from '@mui/material/ListItemText';
+import ListItem from '@mui/material/ListItem';
 import List from '@mui/material/List';
+import Divider from '@mui/material/Divider';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -18,7 +21,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export function DateTimePopup(text, selDate) {
+export function Location(text, selLoc) {
+    const location = ['New Delhi', 'Gurgaon', 'Noida', 'Prayagraj']
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -30,31 +34,31 @@ export function DateTimePopup(text, selDate) {
     };
 
     const date = (text, selDate) => {
-    return (
-        <Card variant="outlined" className="card">
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <StaticDateTimePicker
+        return (
+            <Card variant="outlined" className="card">
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <StaticDateTimePicker
 
-                    label="Controlled picker"
-                    orientation="portrait"
-                    defaultValue={dayjs(Date())}
-                    onAccept={(val) =>
-                        selDate(val.$d)
-                    }
-                    onClose={handleClose}
+                        label="Controlled picker"
+                        orientation="portrait"
+                        defaultValue={dayjs(Date())}
+                        onAccept={(val) =>
+                            selDate(val.$d)
+                        }
+                        onClose={handleClose}
 
-                />
-                {/* <StaticDatePicker className="calender" orientation="portrait" defaultValue={dayjs('2022-04-17')} /> */}
-            </LocalizationProvider>
-            {/* {TimeSlider()} */}
-        </Card>
+                    />
+                    {/* <StaticDatePicker className="calender" orientation="portrait" defaultValue={dayjs('2022-04-17')} /> */}
+                </LocalizationProvider>
+                {/* {TimeSlider()} */}
+            </Card>
 
-    )
-}
+        )
+    }
 
     return (
         <div>
-            <Button variant="text" onClick={handleClickOpen} style={{color: 'black'}}>
+            <Button variant="text" onClick={handleClickOpen} style={{ color: 'black' }}>
                 {text}
             </Button>
             <Dialog
@@ -63,7 +67,7 @@ export function DateTimePopup(text, selDate) {
                 onClose={handleClose}
                 TransitionComponent={Transition}
             >
-                <AppBar sx={{ position: 'relative' , backgroundColor: AppColors.themePrimaryColor}}>
+                <AppBar sx={{ position: 'relative' ,backgroundColor: AppColors.themePrimaryColor}}>
                     <Toolbar>
                         <IconButton
                             edge="start"
@@ -82,7 +86,25 @@ export function DateTimePopup(text, selDate) {
                     </Toolbar>
                 </AppBar>
                 <List>
-                    {date(text, selDate)}
+
+                    {location.map((a) =>
+                        <>
+
+                            <ListItem button onClick={() => selLoc(a)}>
+                                <ListItemText primary={a} />
+                            </ListItem>
+                            <Divider />
+                        </>
+
+                    )}
+
+
+                    {/* <ListItem button>
+                        <ListItemText
+                            primary="Default notification ringtone"
+                            secondary="Tethys"
+                        />
+                    </ListItem> */}
                 </List>
             </Dialog>
         </div>

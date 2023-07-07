@@ -10,9 +10,9 @@ export default function Home() {
       <Topbar />
       <div className="homeContainer">
         <HomeTop />
-        <SideBar />
+        {/* <SideBar />
         <Feed />
-        <RightBar />
+        <RightBar /> */}
 
       </div>
     </>

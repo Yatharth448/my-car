@@ -1,6 +1,6 @@
-.dateTime{
+.dateTime {
     display: flex;
-    width: 100%;
+    width: 70%;
     /* height: 300px; */
     background-color: white;
     border-radius: 20px;
@@ -10,10 +10,26 @@
     overflow: hidden;
     z-index: 9999;
 }
-.dateTime:hover{
+
+.dateCard {
+    margin-top: 0px;
+}
+.dateText {
+    /* align-items: center;
+    justify-content: center; */
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    /* line-height: 1.12;
+    letter-spacing: normal; */
+    text-align: center;
+}
+.dateTime:hover {
     display: flex;
     /* border:1px solid pink; */
 }
+
 /* .dateTime > div {
     border: 1px solid tomato;
 } */
@@ -26,7 +42,17 @@
     align-items: center;
     justify-content: space-between;
 }
-.calender{
+
+.calender {
     /* width: 80% !important; */
     transform: scale(0.8);
+}
+.card{
+    width: '80%';
+}
+.modal{
+    background-color: blue;
+    /* width: 700px; */
+    padding: 100%;
+    /* padding-right: 50; */
 }

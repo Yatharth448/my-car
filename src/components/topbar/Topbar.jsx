@@ -6,11 +6,12 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import {AppColors} from '../themes/color'
 
 export default function Topbar() {
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <AppBar position="static" style={{ backgroundColor: AppColors.themePrimaryColor }} >
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -24,6 +25,7 @@ export default function Topbar() {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         KARAYANA
                     </Typography>
+                    <Button color="inherit" style={{marginRight: 50, borderColor: 'white', borderWidth: 2}}>Rent Your Car </Button>
                     <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>
