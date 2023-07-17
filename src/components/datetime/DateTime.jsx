@@ -14,11 +14,13 @@ import Typography from '@mui/material/Typography';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import { AppColors } from '../themes/color';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
 export function DateTimePopup(text, selDate) {
+    const isRowBased = useMediaQuery('(min-width: 700px)');
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -30,31 +32,31 @@ export function DateTimePopup(text, selDate) {
     };
 
     const date = (text, selDate) => {
-    return (
-        <Card variant="outlined" className="card">
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <StaticDateTimePicker
+        return (
+            <Card variant={isRowBased ? "outlined" : ''} className="card" elevation={0}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <StaticDateTimePicker
 
-                    label="Controlled picker"
-                    orientation="portrait"
-                    defaultValue={dayjs(Date())}
-                    onAccept={(val) =>
-                        selDate(val.$d)
-                    }
-                    onClose={handleClose}
+                        label="Controlled picker"
+                        orientation="portrait"
+                        defaultValue={dayjs(Date())}
+                        onAccept={(val) =>
+                            selDate(val.$d)
+                        }
+                        onClose={handleClose}
 
-                />
-                {/* <StaticDatePicker className="calender" orientation="portrait" defaultValue={dayjs('2022-04-17')} /> */}
-            </LocalizationProvider>
-            {/* {TimeSlider()} */}
-        </Card>
+                    />
+                    {/* <StaticDatePicker className="calender" orientation="portrait" defaultValue={dayjs('2022-04-17')} /> */}
+                </LocalizationProvider>
+                {/* {TimeSlider()} */}
+            </Card>
 
-    )
-}
+        )
+    }
 
     return (
         <div>
-            <Button variant="text" onClick={handleClickOpen} style={{color: 'black'}}>
+            <Button variant="text" onClick={handleClickOpen} style={{ color: 'black' }}>
                 {text}
             </Button>
             <Dialog
@@ -63,7 +65,7 @@ export function DateTimePopup(text, selDate) {
                 onClose={handleClose}
                 TransitionComponent={Transition}
             >
-                <AppBar sx={{ position: 'relative' , backgroundColor: AppColors.themePrimaryColor}}>
+                <AppBar sx={{ position: 'relative', backgroundColor: AppColors.themePrimaryColor }}>
                     <Toolbar>
                         <IconButton
                             edge="start"
@@ -81,9 +83,14 @@ export function DateTimePopup(text, selDate) {
                         </Button> */}
                     </Toolbar>
                 </AppBar>
-                <List>
-                    {date(text, selDate)}
-                </List>
+                {/* <List > */}
+                    <div style={{ width: '100%' , height: '100%', alignItems: 'center', justifyContent: 'center', display: 'flex'}}>
+                    <div style={{ width: isRowBased ? '40%' : '100%', }}>
+
+                            {date(text, selDate)}
+                        </div>
+                    </div>
+                {/* </List> */}
             </Dialog>
         </div>
     );

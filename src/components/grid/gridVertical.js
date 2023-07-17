@@ -16,12 +16,9 @@ export default function gridVertical(carItemDataArray) {
     const gridItem = (itemData, idx) => {
         return (
             <Grid item lg={3} sm={6} xs={12} md={3} id={idx}>
-                <Card sx={{ maxWidth: 345 }}>
-                    <CardActionArea>
+                <Card sx={{ maxWidth: 345, borderRadius: 3, overflow: 'hidden', border: '1px solid #e0e0e0' }} elevation={0}>
+                    <CardActionArea elevation={0} >
                         <CardMedia
-                            // style={{borderColor: '#000', borderWidth: 2}}
-                            borderColor='#000'
-                            borderWidth="2"
                             component="img"
                             alt="green iguana"
                             height="160"
@@ -63,7 +60,7 @@ export default function gridVertical(carItemDataArray) {
 
 
   return (
-      <div style={{ flex: .7 }}>
+      <div style={{ flex: .75 }}>
 
           <Grid container spacing={2} padding={2}>
               {
