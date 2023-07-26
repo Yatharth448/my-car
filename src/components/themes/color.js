@@ -7,6 +7,7 @@ export const AppColors = {
     themesWhiteColor: '#fff',
     themeBlackColor: '#000',
     themeCardBorderColor: "#e0e0e0",
+    themeLightGrayColor : '#a8a8a8',
 
 
 

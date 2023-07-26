@@ -37,7 +37,7 @@ export default function filter() {
                                     alt="green iguana"
                                     height="30"
                                     width={16}
-                                    image={itemData.img}
+                                    image={require('../../assets/car-relevance.png')}//itemData.img}
                                 />
                             </div>
                         </div>

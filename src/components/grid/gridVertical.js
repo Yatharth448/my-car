@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid, Card, CardActions, CardContent, CardMedia, Button, Typography, styled, CardActionArea } from '@mui/material';
 import { AppColors } from '../../components/themes/color';
 import { BorderColor } from '@mui/icons-material';
-
+import { useNavigate } from "react-router-dom";
 const Img = styled('img')({
     margin: 'auto',
     display: 'block',
@@ -10,8 +10,8 @@ const Img = styled('img')({
     maxHeight: '100%',
 });
 
-export default function gridVertical(carItemDataArray) {
-
+export default function GridVertical(carItemDataArray) {
+    let navigate = useNavigate(); 
 
     const gridItem = (itemData, idx) => {
         return (
@@ -49,7 +49,7 @@ export default function gridVertical(carItemDataArray) {
 
                         <CardActions style={{ justifyContent: 'center' }}>
                             {/* <Button size="small">Share</Button> */}
-                            <Button style={{ backgroundColor: AppColors.themePrimaryColor, color: 'white', width: '100%' }} size="small">BOOK NOW</Button>
+                            <Button onClick={()=> navigate('/car-detail')} style={{ backgroundColor: AppColors.themePrimaryColor, color: 'white', width: '100%' }} size="small">BOOK NOW</Button>
                         </CardActions>
                     </CardActionArea>
                 </Card>

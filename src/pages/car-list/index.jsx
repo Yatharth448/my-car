@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Topbar from '../../components/topbar/Topbar';
 import filter from '../../components/filters/filter';
-import gridVertical from '../../components/grid/gridVertical';
+import GridVertical from '../../components/grid/gridVertical';
 
 export default function CarList() {
     const carItemDataArray = [
@@ -94,7 +94,7 @@ export default function CarList() {
             <div style={{ flex: 1, flexDirection: 'row', display: 'flex', width: '100%' }}>
 
                 {filter()}
-                {gridVertical(carItemDataArray)}
+                {GridVertical(carItemDataArray)}
 
             </div>
         </>
